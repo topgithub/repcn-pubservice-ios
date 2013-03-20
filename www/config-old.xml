@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.untvweb.untvmobileapp"
+    version   = "1.1.0">
+
+<name>UNTVWEB Application</name>
+
+<description>
+UNTVWEB Build application.
+</description>
+
+<author href="https://example.com" email="you@example.com">
+William Ragrag
+</author>
+<preference name="keepRunning" value="true" />
+
+<preference name="MediaPlaybackRequiresUserAction" value="false" />
+
+ <icon src="icon.png" />
+    <icon src="res/icon/ios/icon-57-2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
+    <icon src="res/icon/ios/icon-72-2x.png" gap:platform="ios" width="144" height="144" />
+    <icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+    
+    <gap:splash src="res/screen/ios/screen-ipad-landscape-2x.png" gap:platform="ios" width="2048" height="1496" />
+    <gap:splash src="res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="748" />
+    <gap:splash src="res/screen/ios/screen-ipad-portrait-2x.png" gap:platform="ios" width="1536" height="2008" />
+    <gap:splash src="res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1004" />
+    <gap:splash src="res/screen/ios/screen-iphone-landscape-2x.png" gap:platform="ios" width="960" height="640" />
+    <gap:splash src="res/screen/ios/screen-iphone-landscape.png" gap:platform="ios" width="480" height="320" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480" />
+   
+	
+</widget>
