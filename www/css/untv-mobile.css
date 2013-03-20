@@ -139,6 +139,9 @@ body.save div#content {
     #untvradio-streaming-status {
         left: -15px;
     }
+    #iphone-mode {
+        margin-top: -22px;
+    }
 }
 #untv-loader {
     width: 160px;
