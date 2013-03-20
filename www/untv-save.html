@@ -137,7 +137,7 @@ function onLoad() {
 			li += "<a href='untv-savenewsdetails.html?id=" +  results.rows.item(i).postid + "' data-ajax='false'>";
 			li += "<img src='images/ito-ang-balita1.png' />";
 			li += "<h4>"+ results.rows.item(i).newstitle +"</h4>";
-			li += "<p><i>"+ results.rows.item(i).pubdate +"</i><br />" + results.rows.item(i).excerpt +"</p></a>";
+			li += "<p><i>"+ results.rows.item(i).datepub +"</i><br />" + results.rows.item(i).excerpt +"</p></a>";
 	        li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).postid + "); return false;'>Delete Item</a>";
 			li += "</li>";
 	   }
@@ -159,7 +159,7 @@ function onLoad() {
 			li += "<a href='untv-savenewsdetails.html?id=" +  results.rows.item(i).postid + "' data-ajax='false'>";
 			li += "<img src='"+ results.rows.item(i).thumbnail +"' />";
 			li += "<h4>"+ results.rows.item(i).newstitle +"</h4>";
-			li += "<p><i>"+ results.rows.item(i).pubdate + "</i><br />" + results.rows.item(i).excerpt +"</p></a>";
+			li += "<p><i>"+ results.rows.item(i).datepub + "</i><br />" + results.rows.item(i).excerpt +"</p></a>";
 			li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).postid + "); return false;'>Delete Item</a>";
 			li += "</li>";
 	   }

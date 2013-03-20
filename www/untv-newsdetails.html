@@ -181,7 +181,7 @@ function getParameterByName(name)
             s = results.rows.item(i).content;
             $s = $(s).not('div');
             $("#newstitle").text(results.rows.item(i).newstitle); 
-			$("#pubdate").text(results.rows.item(i).pubdate); 
+			$("#pubdate").text(results.rows.item(i).datepub); 
 			$("#newscontent").html($s);
 	   }
 	   	
