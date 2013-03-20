@@ -190,8 +190,8 @@ function onLoad() {
     }
 
     function querydeleteid(tx) {
-        tx.executeSql("DELETE FROM SAVENEWS where postid=" + selectedid, [], deleteselected, errorCB1);
-    }
+        tx.executeSql("DELETE FROM SAVENEWS where postid=?", [selectedid], deleteselected, errorCB1);
+	}
 	
 	function deleteselected(tx, results) {
 	   $('ul#newsroom').empty();
