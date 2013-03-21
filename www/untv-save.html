@@ -131,9 +131,14 @@ function onLoad() {
     
 	function querySuccess2(tx, results) {
 	 var len = results.rows.length;
-	  if (len == 0)
+	 if (len == 0)
 	 {
-	    $("#deleteall").hide();
+		tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
+		
+		// create table 
+		tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
+		 
+		$("#deleteall").hide();
 	 }
 	 
 	 $('#newsroom').append('<ul>');
@@ -160,7 +165,11 @@ function onLoad() {
 	 var len = results.rows.length;
 	 if (len == 0)
 	 {
-	    $("#deleteall").hide();
+		tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
+		 // create table 
+		tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
+		 
+		$("#deleteall").hide();
 	 }
 	 $('#newsroom').append('<ul>');
 	  var li = "";
@@ -221,7 +230,9 @@ function onLoad() {
     // Show a custom confirmation dialog
     //
 	function onError(tx, error) {
-        alert(error.message);
+        //alert(error.message);
+		navigator.notification.alert(error.message, null, "UNTV News - Save", "Ok")
+		
       }
 	  
     function showConfirm(intId) {

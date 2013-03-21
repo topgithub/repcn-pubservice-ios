@@ -134,7 +134,7 @@ function getParameterByName(name)
     // Handle the online event
     function onOnline() {
         isoffline = 0;
-	   //cue the page loader
+	        //cue the page loader
 			$.mobile.showPageLoadingMsg();
 			
 			//use theme swatch "b", a custom message, and no spinner
@@ -196,9 +196,11 @@ function getParameterByName(name)
 	   var iid = getParameterByName("id");
 	   // Process DB
 	   db.transaction(function (tx) {
-	     // create table 
-		  tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
-		  // insert record
+	     
+		 // create table 
+		 tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
+		 
+		 // insert record
 		 tx.executeSql("INSERT INTO SAVENEWS (postid, newstitle,datepub,excerpt,content,thumbnail) VALUES (?,?,?,?,?,?)",[iid, $("#newstitle").text(),$("#pubdate").text(),$("#excerpt").text(),$("#newscontent").text(),$("#thumbnail").text()]); }
 		  ,errorCB1, successCB1);
 					
@@ -216,7 +218,7 @@ function getParameterByName(name)
     }
     function getstreamdata() {
      if (isoffline == 0)
-         {
+        {
             getStreaming('untv');
         }
          else {
