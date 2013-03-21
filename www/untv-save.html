@@ -225,13 +225,30 @@ function onLoad() {
       }
 	  
     function showConfirm(intId) {
-		//selectedid = intId;
-		  db.transaction(function(tx) {
-	      alert(deleteStatement + ' ' + intId);
-          tx.executeSql(deleteStatement, [intId], showRecords, onError);
-        });
-		
+		selectedid = intId;
+		navigator.notification.confirm(
+            'Are you sure you want to delete this news?',  // message
+             onConfirmdelete,  // callback to invoke with index of button pressed
+             'Delete Bookmark', // title
+              'Yes,No'  // buttonLabels
+              );
+	}
+	
+	// process the confirmation dialog result
+    function onConfirmdelete(buttonIndex) {
+        //alert('You selected button ' + buttonIndex);
+        if (buttonIndex == 1)
+        {
+		    db.transaction(function(tx) {
+	        tx.executeSql(deleteStatement, [selectedid], showRecords, onError);
+            });
+        }
+        else
+        {
+           
+        }
     }
+	
 	
     function showRecords() {
 	$('ul#newsroom').empty();
@@ -252,7 +269,7 @@ function onLoad() {
         //alert('You selected button ' + buttonIndex);
         if (buttonIndex == 1)
         {
-           db.transaction(querydeleteall, errorCB1);
+		    db.transaction(querydeleteall, errorCB1);
         }
         else
         {
@@ -280,8 +297,9 @@ function onLoad() {
     }
     
    function querydeleteall(tx) {
+	    tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
         tx.executeSql("DELETE FROM SAVENEWS", [], deleteSuccess, errorCB1);
-		tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
+		
     }
     function deleteSuccess(tx, results) {
         $('ul#newsroom').empty();
