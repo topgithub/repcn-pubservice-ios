@@ -233,6 +233,8 @@ function onLoad() {
     }
 	
     function showRecords() {
+	$('ul#newsroom').empty();
+    $("#newsroom").listview("refresh");
 	 if (isoffline == 0)
         {
            //online
