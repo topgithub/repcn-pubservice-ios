@@ -227,6 +227,7 @@ function onLoad() {
     function showConfirm(intId) {
 		//selectedid = intId;
 		  db.transaction(function(tx) {
+	      alert(deleteStatement + ' ' + intId);
           tx.executeSql(deleteStatement, [intId], showRecords, onError);
         });
 		
