@@ -142,6 +142,20 @@ body.save div#content {
     #iphone-mode {
         margin-top: -22px;
     }
+    #programs h4.program-title {
+        position: relative; 
+        bottom: 30px;
+        left: 5px;
+        font-size: 12px;
+    }
+    #programs p.ui-li-aside {
+        float: none;
+        clear: both;
+        position: relative; 
+        top: 30px; 
+        width: 150px; 
+        margin-left: -20px;
+    }
 }
 #untv-loader {
     width: 160px;

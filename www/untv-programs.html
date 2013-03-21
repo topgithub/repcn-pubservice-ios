@@ -174,8 +174,8 @@ function onLoad() {
 					    //console.log(rObj + "--data--");
 						  li = "";
                           li += "<li>";
-						  li += "<a href='#'><img src='" + rObj.thumbnail + "' /><h4 style='position: relative; bottom: 30px;'>&nbsp;&nbsp;&nbsp;" + rObj.title + "</h4>";
-                          li += "<p class='ui-li-aside' style='float: none; clear: both; position: relative; top: 30px; width: 150px; margin-left: -20px;'><strong>" + rObj.time_start +  " - " + rObj.time_end + "</strong></p></a></li>";
+						  li += "<a href='#'><img src='" + rObj.thumbnail + "' /><h4 class='program-title'>&nbsp;&nbsp;&nbsp;" + rObj.title + "</h4>";
+                          li += "<p class='ui-li-aside'><strong>" + rObj.time_start +  " - " + rObj.time_end + "</strong></p></a></li>";
 						   list[index] = li;
 					  });
                     list = list.reverse();
