@@ -197,8 +197,7 @@ function getParameterByName(name)
 	   // Process DB
 	   db.transaction(function (tx) {
 	     // create table 
-		  tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
-          tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
+		  tx.executeSql('CREATE TABLE IF NOT EXISTS SAVENEWS (id INTEGER PRIMARY KEY AUTOINCREMENT,postid, catid,newstitle,datepub,excerpt,content,thumbnail)');
 		  // insert record
 		 tx.executeSql("INSERT INTO SAVENEWS (postid, newstitle,datepub,excerpt,content,thumbnail) VALUES (?,?,?,?,?,?)",[iid, $("#newstitle").text(),$("#pubdate").text(),$("#excerpt").text(),$("#newscontent").text(),$("#thumbnail").text()]); }
 		  ,errorCB1, successCB1);
