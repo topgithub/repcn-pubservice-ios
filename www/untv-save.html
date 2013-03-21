@@ -129,6 +129,11 @@ function onLoad() {
     
 	function querySuccess2(tx, results) {
 	 var len = results.rows.length;
+	  if (len == 0)
+	 {
+	    $("#deleteall").hide();
+	 }
+	 
 	 $('#newsroom').append('<ul>');
 	  var li = "";
       for (var i=0; i<len; i++){
@@ -151,6 +156,10 @@ function onLoad() {
 	}
 	function querySuccess1(tx, results) {
 	 var len = results.rows.length;
+	 if (len == 0)
+	 {
+	    $("#deleteall").hide();
+	 }
 	 $('#newsroom').append('<ul>');
 	  var li = "";
       for (var i=0; i<len; i++){
