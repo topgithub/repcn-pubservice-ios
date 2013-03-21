@@ -95,7 +95,7 @@
 var db = window.openDatabase("untv", "1.0", "UNTV DB", 1000000);
 var isoffline = 0;
 var selectedid;
-var deleteStatement = "DELETE FROM SAVENEWS WHERE postid=?";
+var deleteStatement = "DELETE FROM SAVENEWS WHERE postid=";
    
 function onLoad() {
         document.addEventListener("online", onOnline, false);
@@ -227,8 +227,8 @@ function onLoad() {
     function showConfirm(intId) {
 		//selectedid = intId;
 		  db.transaction(function(tx) {
-	      alert(deleteStatement + ' ' + intId);
-          tx.executeSql(deleteStatement, [intId], showRecords, onError);
+	      //alert(deleteStatement + ' ' + intId);
+          tx.executeSql(deleteStatement + intId, [], showRecords, onError);
         });
 		
     }
