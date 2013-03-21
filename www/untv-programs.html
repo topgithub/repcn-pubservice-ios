@@ -178,7 +178,7 @@ function onLoad() {
                           li += "<p class='ui-li-aside'><strong>" + rObj.time_start +  " - " + rObj.time_end + "</strong></p></a></li>";
 						   list[index] = li;
 					  });
-                    list = list.reverse();
+                    
                     $('#programs').append(list.join(''));
                     
 			        $("#programs").listview("refresh");
