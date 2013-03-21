@@ -297,8 +297,7 @@ function onLoad() {
     }
     
    function querydeleteall(tx) {
-	    tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
-        tx.executeSql("DELETE FROM SAVENEWS", [], deleteSuccess, errorCB1);
+	    tx.executeSql("DELETE FROM SAVENEWS", [], deleteSuccess, errorCB1);
 		
     }
     function deleteSuccess(tx, results) {
