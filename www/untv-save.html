@@ -95,7 +95,7 @@
 var db = window.openDatabase("untv", "1.0", "UNTV DB", 1000000);
 var isoffline = 0;
 var selectedid;
-var deleteStatement = "DELETE FROM SAVENEWS WHERE postid=";
+var deleteStatement = "DELETE FROM SAVENEWS WHERE id=";
    
 function onLoad() {
         document.addEventListener("online", onOnline, false);
@@ -145,7 +145,7 @@ function onLoad() {
 			li += "<img src='images/ito-ang-balita1.png' />";
 			li += "<h4>"+ results.rows.item(i).newstitle +"</h4>";
 			li += "<p><i>"+ results.rows.item(i).datepub +"</i><br />" + results.rows.item(i).excerpt +"</p></a>";
-	        li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).postid + "); return false;'>Delete Item</a>";
+	        li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).id + "); return false;'>Delete Item</a>";
 			li += "</li>";
 	   }
 	   $('ul#newsroom').append(li);
@@ -171,7 +171,7 @@ function onLoad() {
 			li += "<img src='"+ results.rows.item(i).thumbnail +"' />";
 			li += "<h4>"+ results.rows.item(i).newstitle +"</h4>";
 			li += "<p><i>"+ results.rows.item(i).datepub + "</i><br />" + results.rows.item(i).excerpt +"</p></a>";
-			li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).postid + "); return false;'>Delete Item</a>";
+			li += "<a href='#' onclick='showConfirm(" + results.rows.item(i).id + "); return false;'>Delete Item</a>";
 			li += "</li>";
 	   }
 	   $('ul#newsroom').append(li);
@@ -228,7 +228,7 @@ function onLoad() {
 		//selectedid = intId;
 		  db.transaction(function(tx) {
 	      //alert(deleteStatement + ' ' + intId);
-          tx.executeSql(deleteStatement + intId, [], showRecords, onError);
+          tx.executeSql(deleteStatement, [intId], showRecords, onError);
         });
 		
     }
