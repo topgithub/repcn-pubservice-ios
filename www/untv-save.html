@@ -94,7 +94,9 @@
 
 var db = window.openDatabase("untv", "1.0", "UNTV DB", 1000000);
 var isoffline = 0;
-var selectedid;   
+var selectedid;
+var deleteStatement = "DELETE FROM SAVENEWS WHERE postid=?";
+   
 function onLoad() {
         document.addEventListener("online", onOnline, false);
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -218,16 +220,29 @@ function onLoad() {
 	
     // Show a custom confirmation dialog
     //
+	function onError(tx, error) {
+        alert(error.message);
+      }
+	  
     function showConfirm(intId) {
-		selectedid = intId;
-		navigator.notification.confirm(
-            'Are you sure you want to delete this news?',  // message
-            onConfirm,              // callback to invoke with index of button pressed
-            'Delete Save News', // title
-            'Yes,No'          // buttonLabels
-        );
+		//selectedid = intId;
+		  db.transaction(function(tx) {
+          tx.executeSql(deleteStatement, [intId], showRecords, onError);
+        });
+		
     }
-    
+	
+    function showRecords() {
+	 if (isoffline == 0)
+        {
+           //online
+		   db.transaction(queryDB1, errorCB1);
+        }
+        else {
+           // oofline
+           db.transaction(queryDB2, errorCB1);
+        }
+	}
 	
     // process the confirmation dialog result
     function onConfirmall(buttonIndex) {
