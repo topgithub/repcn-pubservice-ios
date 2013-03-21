@@ -142,6 +142,19 @@ body.save div#content {
     #iphone-mode {
         margin-top: -42px;
     }
+    #category-title-here {
+        display: none;
+    }
+    #news-category #home-list {
+        padding: 0 10px;
+    }
+    #iphone-category {
+        margin-top: 40px !important;
+        margin-bottom: 10px !important;
+    }
+    #iphone-newslist {
+        margin-top: 20px;
+    }
     #programs h4.program-title {
         position: relative; 
         bottom: 30px;
