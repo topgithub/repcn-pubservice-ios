@@ -154,10 +154,6 @@ function onLoad() {
         {
                         
             $('#programs').empty();
-            //cue the page loader
-			$.mobile.showPageLoadingMsg();
-			//use theme swatch "b", a custom message, and no spinner
-			$.mobile.showPageLoadingMsg("b", "Please wait...", true);
             
             $("#program-title").text(schedule + " Program Schedule");
             var url = "http://www.untvradio.com/api/programs/get_programs_by_day/?day=" + schedule + "&callback=?";
@@ -180,10 +176,12 @@ function onLoad() {
                                 $('#programs').append(li);
                                 $("#programs").listview("refresh");
                                 
+                                //hide the page loader
+                                $.mobile.hidePageLoadingMsg();
                                 });
-            //hide the page loader
-            $.mobile.hidePageLoadingMsg();
-
+            
+            //cue the page loader
+			$.mobile.showPageLoadingMsg();
         }
         else {
             navigator.notification.alert('This media require internet connection.', null, "UNTV News", "Ok")
