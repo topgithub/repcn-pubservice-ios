@@ -240,12 +240,13 @@
             function onOffline() {
                 isoffline = 1;
                 db.transaction(queryDB, errorCB);
-                $('#category-title-here').append("<h3 class='title' id='categorytitle'> News Category </h3>");
+                $('#category-title-here').append("<h3 class='title' id='categorytitle'>News Category </h3>");
             }
 	
             // Query the database
             //
             function queryDB(tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS CATEGORY (id unique, data)');
                 tx.executeSql('SELECT * FROM CATEGORY', [], querySuccess, errorCB);
                 tx.executeSql("SELECT * FROM NEWS where catid='0216'", [], querySuccess1, errorCB1);
             }
@@ -254,6 +255,10 @@
             //
             function querySuccess(tx, results) {
                 var len = results.rows.length;
+                if (len == 0)
+                {
+                    navigator.notification.alert('This media require internet connection.', null, "UNTV News", "Ok")
+                }
                 $('#home-list').append('<ul id="untv-category">');
                 var li = "";
                 for (var i=0; i<len; i++){

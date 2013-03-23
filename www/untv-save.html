@@ -308,7 +308,11 @@ function onLoad() {
     }
     
    function querydeleteall(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS SAVENEWS');
 	    tx.executeSql("DELETE FROM SAVENEWS", [], deleteSuccess, errorCB1);
+       $('ul#newsroom').empty();
+       $("#newsroom").listview("refresh");
+       $("#deleteall").hide();
 		
     }
     function deleteSuccess(tx, results) {

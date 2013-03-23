@@ -155,37 +155,45 @@ function onLoad() {
 
     function loadschedule(schedule)
 	{
-		 $('#programs').empty();
-		 //cue the page loader
-			$.mobile.showPageLoadingMsg();
-			//use theme swatch "b", a custom message, and no spinner
-			$.mobile.showPageLoadingMsg("b", "Please wait...", true);
-		 
-		 $("#program-title").text(schedule + " Program Schedule");
-	     var url = "http://www.untvweb.com/api/programs/get_programs_by_day/?day=" + schedule + "&callback=?";
-         
-		  $.getJSON(url).done(function (response) {
-                    //console.log(response.categories);
-                    //var posts = response.posts; //here's your response
-                    var r = response.programs;
-                    $('#programs').append("<li data-role='list-divider'>Programs</li>");
-                    var li = "", list = [];
-                    $.each(r[0], function (index, rObj) {
-					    //console.log(rObj + "--data--");
-						  li = "";
-                          li += "<li>";
-						  li += "<a href='#'><img src='" + rObj.thumbnail + "' /><h4 class='program-title'>&nbsp;&nbsp;&nbsp;" + rObj.title + "</h4>";
-                          li += "<p class='ui-li-aside'><strong>" + rObj.time_start +  " - " + rObj.time_end + "</strong></p></a></li>";
-						   list[index] = li;
-					  });
-                    
-                    $('#programs').append(list.join(''));
-                    
-			        $("#programs").listview("refresh");
-                   
-                });
-				//hide the page loader
-			    $.mobile.hidePageLoadingMsg();
+        if (isoffline == 0)
+        {
+           
+        }
+        else {
+            navigator.notification.alert('This media require internet connection.', null, "UNTV News", "Ok")
+        }
+
+        
+        $('#programs').empty();
+        //cue the page loader
+        $.mobile.showPageLoadingMsg();
+        //use theme swatch "b", a custom message, and no spinner
+        $.mobile.showPageLoadingMsg("b", "Please wait...", true);
+        
+        $("#program-title").text(schedule + " Program Schedule");
+        var url = "http://www.untvweb.com/api/programs/get_programs_by_day/?day=" + schedule + "&callback=?";
+        
+        $.getJSON(url).done(function (response) {
+                            //console.log(response.categories);
+                            //var posts = response.posts; //here's your response
+                            var r = response.programs;
+                            $('#programs').append("<li data-role='list-divider'>Programs</li>");
+                            var li = "", list = [];
+                            $.each(r[0], function (index, rObj) {
+                                   //console.log(rObj + "--data--");
+                                   //li = "";
+                                   li += "<li>";
+                                   li += "<a href='#'><img src='" + rObj.thumbnail + "' /><h4 class='program-title'>&nbsp;&nbsp;&nbsp;" + rObj.title + "</h4>";
+                                   li += "<p class='ui-li-aside'><strong>" + rObj.time_start +  " - " + rObj.time_end + "</strong></p></a></li>";
+                                   //list[index] = li;
+                                   });
+                            //$('#programs').append(list.join(''));
+                            $('#programs').append(li);
+                            $("#programs").listview("refresh");
+                            
+                            });
+        //hide the page loader
+        $.mobile.hidePageLoadingMsg();
 				
 	}
     // Handle the online event

@@ -70,11 +70,6 @@ body.save div#content {
 	color: #1f1f1f;
 	text-shadow: none !important;
 }
-#home-list li span.ui-icon {
-	background: url('../images/untv/icon-home-list.png');
-	height: 18px;
-	width:18px;
-}
 /* UNTV Listing - Ends */
 
 /* UNTV Radio Listing - Starts */
@@ -102,11 +97,6 @@ body.save div#content {
 #radio-home-list li a {
 	color: #1f1f1f;
 	text-shadow: none !important;
-}
-#radio-home-list li span.ui-icon {
-	background: url('../images/untv/icon-home-list.png');
-	height: 18px;
-	width:18px;
 }
 /* UNTV Radio Listing - Ends */
 
@@ -165,9 +155,9 @@ body.save div#content {
         float: none;
         clear: both;
         position: relative; 
-        top: 30px; 
+        top: 10px; 
         width: 150px; 
-        margin-left: -20px;
+        margin-left: -18px;
     }
 }
 #untv-loader {
@@ -414,7 +404,17 @@ body#untv-radio #content h2#untv-webcast-text {
 #program-schedules-nav h3.title {
 	margin-bottom: 16px;
 }
-
+ul.untv-listing {
+    margin-left: 30px;
+}
+ul.untv-listing li {
+    list-style: disc !important;
+    list-style-position: outside;
+    
+}
+ul.untv-listing li:last-child {
+    border-bottom: none !important;
+}
 /* Footer Menu */
 	#footer-menu .ui-btn .ui-btn-inner { padding-top: 40px !important; }
 	#footer-menu .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
